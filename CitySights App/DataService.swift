@@ -12,14 +12,14 @@ struct DataService {
     //api key generated
     let apiKey = Bundle.main.infoDictionary?["API_KEY"] as? String
     
-    func businessSearch() async {
+    func businessSearch() async -> [Business]{
         
         // check if api key is valid
         
         guard apiKey != nil else {
             
             //will return if not
-            return
+            return []
         }
         
         // else create URL
@@ -36,8 +36,13 @@ struct DataService {
             
             do {
                let (data, response) = try await URLSession.shared.data(for: request)
-                print(data)
-                print(response)
+                
+                //Parse the JSON
+                
+                var decoder = JSONDecoder()
+                
+                let result = try decoder.decode(BusinessSearch.self, from: data)
+                return result.business
                 
             } catch {
                 print(error)
@@ -45,6 +50,7 @@ struct DataService {
             
             
         }
+        return []
     }
     
 }
