@@ -42,7 +42,7 @@ struct DataService {
                 var decoder = JSONDecoder()
                 
                 let result = try decoder.decode(BusinessSearch.self, from: data)
-                return result.business
+                return result.businesses
                 
             } catch {
                 print(error)

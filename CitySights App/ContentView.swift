@@ -8,25 +8,36 @@ import SwiftUI
 
 struct ContentView: View {
     
+    @State var businesses = [Business]()
     @State var query: String = ""
     var service = DataService()
     
     var body: some View {
-        HStack {
-            TextField("What are you looking for?",text: $query)
-                .textFieldStyle(.roundedBorder)
+        
+        VStack{
             
-            Button{
-                //Do
-            } label: {
-                Text("Go")
-                    .padding(.horizontal)
-                    .padding(.vertical, 10)
+            
+            HStack {
+                TextField("What are you looking for?",text: $query)
+                    .textFieldStyle(.roundedBorder)
+                
+                Button{
+                    //Do
+                } label: {
+                    Text("Go")
+                        .padding(.horizontal)
+                        .padding(.vertical, 10)
+                }
+            }
+            List(businesses) {b in
+                Text(b.name ?? "nil")
             }
         }
+        
+        
         .padding()
         .task {
-            let businesses = await service.businessSearch()
+             businesses = await service.businessSearch()
         }
     }
 }
