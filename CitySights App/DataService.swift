@@ -19,6 +19,7 @@ struct DataService {
         guard apiKey != nil else {
             
             //will return if not
+            print("API key is missing")
             return []
         }
         
@@ -37,19 +38,40 @@ struct DataService {
             do {
                let (data, response) = try await URLSession.shared.data(for: request)
                 
-                //Parse the JSON
                 
-                var decoder = JSONDecoder()
                 
-                let result = try decoder.decode(BusinessSearch.self, from: data)
-                return result.businesses
+                
+                
+                //check resonse status code
+                if let httpResponse = response as? HTTPURLResponse{
+//                    print("Status code: \(httpResponse.statusCode)")
+                    
+                    
+                    if httpResponse.statusCode == 200 {
+                        //parse json
+                        
+                        var decoder = JSONDecoder()
+                        
+                        let result = try decoder.decode(BusinessSearch.self, from: data)
+                        return result.businesses
+                    } else{
+                        let responseBody = String(data:data, encoding: .utf8) ?? "No response body"
+                        print("Error: \(httpResponse.statusCode), Response Body: \(responseBody)")
+                    }
+                }
+                
+              
+                
                 
             } catch {
-                print(error)
+                print("Error during request:\(error.localizedDescription)")
             }
             
             
+        } else {
+            print("invalid URL.")
         }
+        
         return []
     }
     

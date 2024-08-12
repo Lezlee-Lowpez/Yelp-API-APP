@@ -63,6 +63,7 @@ struct ContentView: View {
    
         .task {
              businesses = await service.businessSearch()
+            //not returning anything
         }
         .sheet(item: $selectedBusiness) { item in
             BusinessDetailView(business: item)
