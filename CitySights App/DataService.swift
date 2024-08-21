@@ -50,7 +50,7 @@ struct DataService {
                     if httpResponse.statusCode == 200 {
                         //parse json
                         
-                        var decoder = JSONDecoder()
+                        let decoder = JSONDecoder()
                         
                         let result = try decoder.decode(BusinessSearch.self, from: data)
                         return result.businesses

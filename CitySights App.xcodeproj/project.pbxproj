@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		6F1FEA4B2C66CBA40001CE39 /* BusinessDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F1FEA4A2C66CBA40001CE39 /* BusinessDetailView.swift */; };
+		6F4B73B82C76793900A3EFAE /* BusinessModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F4B73B72C76793900A3EFAE /* BusinessModel.swift */; };
 		6FA672122C66B5DB00FB3F8E /* TextHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FA672112C66B5DB00FB3F8E /* TextHelper.swift */; };
 		6FB77A9D2C6544E300102C5F /* CitySights_AppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FB77A9C2C6544E200102C5F /* CitySights_AppApp.swift */; };
 		6FB77A9F2C6544E300102C5F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FB77A9E2C6544E300102C5F /* ContentView.swift */; };
@@ -20,6 +21,7 @@
 
 /* Begin PBXFileReference section */
 		6F1FEA4A2C66CBA40001CE39 /* BusinessDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessDetailView.swift; sourceTree = "<group>"; };
+		6F4B73B72C76793900A3EFAE /* BusinessModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessModel.swift; sourceTree = "<group>"; };
 		6FA672112C66B5DB00FB3F8E /* TextHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextHelper.swift; sourceTree = "<group>"; };
 		6FB77A992C6544E200102C5F /* CitySights App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CitySights App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6FB77A9C2C6544E200102C5F /* CitySights_AppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitySights_AppApp.swift; sourceTree = "<group>"; };
@@ -76,6 +78,7 @@
 				6FB77A9E2C6544E300102C5F /* ContentView.swift */,
 				6F1FEA4A2C66CBA40001CE39 /* BusinessDetailView.swift */,
 				6FB77AAC2C6572FF00102C5F /* DataService.swift */,
+				6F4B73B72C76793900A3EFAE /* BusinessModel.swift */,
 				6FB77AAA2C65613700102C5F /* Config.xcconfig */,
 				6FB77AA02C6544EA00102C5F /* Assets.xcassets */,
 				6FB77AA22C6544EA00102C5F /* Preview Content */,
@@ -175,6 +178,7 @@
 				6FB77AAD2C6572FF00102C5F /* DataService.swift in Sources */,
 				6F1FEA4B2C66CBA40001CE39 /* BusinessDetailView.swift in Sources */,
 				6FB77AAF2C6581F600102C5F /* BusinessSearch.swift in Sources */,
+				6F4B73B82C76793900A3EFAE /* BusinessModel.swift in Sources */,
 				6FB77A9F2C6544E300102C5F /* ContentView.swift in Sources */,
 				6FB77AB22C65824200102C5F /* Business.swift in Sources */,
 				6FA672122C66B5DB00FB3F8E /* TextHelper.swift in Sources */,
