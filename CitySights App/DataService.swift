@@ -13,7 +13,7 @@ struct DataService {
     //api key generated
     let apiKey = Bundle.main.infoDictionary?["API_KEY"] as? String
     
-    func businessSearch(userLocation: CLLocationCoordinate2D?) async -> [Business]{
+    func businessSearch(userLocation: CLLocationCoordinate2D?, query: String?, options: String?, category: String?) async -> [Business]{
         
         // check if api key is valid
         
@@ -33,7 +33,25 @@ struct DataService {
             long = userLocation.longitude
         }
         
-        if let url = URL(string: "https://api.yelp.com/v3/businesses/search?latitude=\(lat)&longitude=\(long)&categories=restaurants&limit=10"){
+        var endpointURLString = "https://api.yelp.com/v3/businesses/search?latitude=\(lat)&longitude=\(long)&limit=10"
+        
+        //Add query
+        
+        if let query = query {
+            endpointURLString.append("&term=\(query.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)")
+        }
+        
+        //Add options
+        if let options = options {
+            endpointURLString.append("&attributes\(options)")
+        }
+            //Add categories
+        
+        if let category = category {
+            endpointURLString.append("&category=\(category)")
+        }
+        
+        if let url = URL(string: endpointURLString){
             
             // create the URL Request
             
